@@ -1,33 +1,34 @@
-Introduction to Pygame Zero
-===========================
+Introducción a Pygame Zero
+==========================
 
 .. highlight:: python
     :linenothreshold: 5
 
-Creating a window
------------------
+Creando una ventana
+-------------------
 
-First, create an empty file called ``intro.py``.
+Primero, crea un archivo vacío con el nombre ``intro.py``.
 
-Verify that this runs and creates a blank window by running ::
+Verifica que esto ejecuta y crea una ventana en negro ejecutando::
 
     pgzrun intro.py
 
-Everything in Pygame Zero is optional; a blank file is a valid Pygame Zero
-script!
+¡Todo en Pygame Zero es opcional; un fichero en blanco es un programa de Pygame
+Zero válido!
 
-You can quit the game by clicking on the window's close button or by pressing
-``Ctrl-Q`` (``⌘-Q`` on Mac). If the game stops responding for any reason, you
-may need to terminate it by pressing ``Ctrl-C`` in your Terminal window.
+Puedes salir del juego pulsando en el botón de cerrar de la ventana o pulsando
+``Ctrl-Q`` (``⌘-Q`` en Mac). Si el juego deja de responder por alguna razón,
+quizás necesites cerrarlo pulsado ``Ctrl-C`` en la ventana de Terminal.
 
 
-Drawing a background
---------------------
+Dibujando un fondo
+------------------
 
-Next, let's add a :func:`draw` function and set window dimensions. Pygame Zero
-will call this function whenever it needs to paint the screen.
+Después, vamos a añadir una función :func:`draw` y especificar las dimensiones
+de la ventana. Pygame Zero llamará a esta función cuando necesite pintar la
+pantalla.
 
-In ``intro.py``, add the following::
+En ``intro.py``, añade lo siguiente::
 
     WIDTH = 300
     HEIGHT = 300
@@ -35,48 +36,49 @@ In ``intro.py``, add the following::
     def draw():
         screen.fill((128, 0, 0))
 
-Re-run ``pgzrun intro.py`` and the screen should now be a reddish square!
+Re-ejecuta ``pgzrun intro.py`` y ¡la pantalla debe ser ahora un cuadrado rojizo!
 
-What is this code doing?
+¿Qué está haciendo este código?
 
-``WIDTH`` and ``HEIGHT`` control the width and height of your window. The code
-sets the window size to be 300 pixels in each dimension.
+``WIDTH`` y ``HEIGHT`` controlan el ancho y altura de tu ventana. El código fija
+el tamaño de la ventana a 300 píxeles para cada lado.
 
-``screen`` is a built-in that represents the window display. It has a
-:ref:`range of methods for drawing sprites and shapes <screen>`. The
-``screen.fill()`` method call is filling the screen with a solid colour,
-specified as a ``(red, green, blue)`` colour tuple. ``(128, 0, 0)`` will be a
-medium-dark red. Try changing these values with numbers between 0 and 255
-and see what colors you can create.
+.. Traducción: ¿Cuál es la traducción más exacta de 'sprite'?
 
-Let's set up a sprite that we can animate.
+``screen`` es un objeto incorporado que representa la pantalla. Tiene
+:ref:`una serie de funciones para dibujar objetos y formas <screen>`. La llamada
+a la función ``screen.fill()`` rellena la pantalla con un color sólido,
+especificado como  una lista de colores ``(red, green, blue)``. ``(128, 0, 0)``
+será un rojo medio oscuro. Intenta cambiar esos valores con números entre 0 y
+255 y mira qué colores puedes crear.
 
+Vamos a crear un objeto que podemos animar.
 
-Draw a sprite
--------------
+Dibuja un objeto
+----------------
 
-Before we can draw anything, we'll need to save an alien sprite to use. You can
-right click on this one and save it ("Save Image As..." or similar).
+Antes de que podamos dibujar algo, necesitaremos guardar el objeto *alien* para
+usarlo. Puedes pulsar con el botón derecho en este y guardarlo. ("Guardar imagen
+como..." o similar).
 
 .. image:: _static/alien.png
 
-(This sprite has a transparency (or "alpha") channel, which is great for games!
-But it's designed for a dark background, so you may not be able to see the
-alien's space helmet until it is shown in the game).
+(Esta imagen tiene una capa transparente (o "canal alfa"), ¡que es genial para
+juegos! Pero está diseñado para un fondo negro, puedes no ser capaz de ver el
+casco hasta que no se muestre en el juego).
 
 .. tip::
+    
+    Puedes buscar un montón de objeto gratuitos, incluido este, en `kenney.nl
+    <https://kenney.nl/assets?q=2d>`_. Este procede de `Platformer Art Deluxe
+    pack <https://kenney.nl/assets/platformer-art-deluxe>`_.
 
-    You can find lots of free sprites, including this one, on `kenney.nl
-    <https://kenney.nl/assets?q=2d>`_. This one comes from the
-    `Platformer Art Deluxe pack
-    <https://kenney.nl/assets/platformer-art-deluxe>`_.
+Necesitas guardar el archivo en lugar adecuado para que Pygame Zero lo pueda
+encontrar. Crea un directorio llamado ``images`` y guarda la imagen en él como
+``alien.png``. Los dos nombre deben de estar en minúsculas. Pygame Zero avisará
+si no, para alertarte del grave fallo entre distintas plataformas.
 
-You need to save the file in the right place so that Pygame Zero can find it.
-Create a directory called ``images`` and save the image into it as
-``alien.png``. Both of those must be lower case. Pygame Zero will complain
-otherwise, to alert you to a potential cross-platform compatibility pitfall.
-
-If you've done that, your project should look like this:
+Si has hecho esto, tu proyecto debe verse así:
 
 .. code-block:: none
 
@@ -85,13 +87,13 @@ If you've done that, your project should look like this:
     │   └── alien.png
     └── intro.py
 
-``images/`` is the standard directory that Pygame Zero will look in to find
-your images.
+``images/`` es el directorio estándar donde Pygame Zero mirará para buscar tus
+imágenes.
 
-There's a built-in class called :class:`Actor` that you can use to represent a
-graphic to be drawn to the screen.
+Hay una clase incorporada llamada :class:`Actor` que puedes usar para
+representar un gráfico a dibujar en la pantalla.
 
-Let's define one now. Change the ``intro.py`` file to read::
+Vamos a definir uno ahora. Cambia el archivo ``intro.py`` para que sea::
 
     alien = Actor('alien')
     alien.pos = 100, 56
@@ -103,17 +105,16 @@ Let's define one now. Change the ``intro.py`` file to read::
         screen.clear()
         alien.draw()
 
-Your alien should now be appearing on screen! By passing the string ``'alien'``
-to the ``Actor`` class, it automatically loads the sprite, and has attributes
-like positioning and dimensions. This allows us to set the ``HEIGHT`` of
-the window based on the height of the alien.
+¡Tu alien debe aparecer ahora en la pantalla! Pasando la cadena ``'alien'`` a la
+clase ``Actor``, este automáticamente carga el gráfico, y tiene atributos como
+posición y dimensión. Esto nos permite especificar la altura de la ventana
+basada en la altura del alien.
 
-The ``alien.draw()`` method draws the sprite to the screen at its current
-position.
+La función ``alien.draw()`` dibuja el objeto en la pantalla en su posición
+actual.
 
-
-Moving the alien
-----------------
+Moviendo el alien
+-----------------
 
 Let's set the alien off-screen; change the ``alien.pos`` line to read::
 
