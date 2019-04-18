@@ -69,7 +69,7 @@ casco hasta que no se muestre en el juego).
 
 .. tip::
     
-    Puedes buscar un montón de objeto gratuitos, incluido este, en `kenney.nl
+    Puedes buscar un montón de objetos gratuitos, incluido este, en `kenney.nl
     <https://kenney.nl/assets?q=2d>`_. Este procede de `Platformer Art Deluxe
     pack <https://kenney.nl/assets/platformer-art-deluxe>`_.
 
@@ -116,36 +116,37 @@ actual.
 Moviendo el alien
 -----------------
 
-Let's set the alien off-screen; change the ``alien.pos`` line to read::
+Vamos a poner el alien fuera de la pantalla; cambia la líne ``alien.pos`` para
+que sea::
 
     alien.topright = 0, 10
 
-Note how you can assign to ``topright`` to move the alien actor by its
-top-right corner. If the right-hand edge of the alien is at ``0``, the the
-alien is just offscreen to the left.  Now let's make it move. Add the following
-code to the bottom of the file::
+Nota como puedes asignar a ``topright`` para mover el alien por su esquina
+derecha. Si el borde de la mano derecha del alien está en ``0``, el alien está
+justo fuera de la pantalla por la izquierda. Ahora vamos a hacerlo mover. Añade
+el siguiente código al final del archivo::
 
     def update():
         alien.left += 2
         if alien.left > WIDTH:
             alien.right = 0
 
-Pygame Zero will call your :func:`update` function once every frame. Moving the
-alien a small number of pixels every frame will cause it to slide across the
-screen. Once it slides off the right-hand side of the screen, we reset it back
-to the left.
+Pygame Zero llamará a tu función :func:`update` en cada frame. Moviendo el alien
+un número pequeño de píxeles cada frame hará que se desplace por la pantalla.
+Una vez que se sale del lado derecho de la pantalla, lo colocamos a la izquierda.
 
-Your functions ``draw()`` and ``update()`` work in similar ways but are designed for two different purposes.
-The ``draw()`` function draws the current position of the alien while the ``update()`` function is used to show the alien
-moving on the screen.
+Tus funciones ``draw()`` y ``update()`` trabajan de maneras parecidas pero están
+diseñadas para dos propósitos diferentes. La función ``draw()`` dibuja en la
+posición actual el alien mientras que la función ``update()`` es usada para 
+mover al alien en la pantalla.
 
 
-Handling clicks
----------------
+Manejando clicks
+----------------
 
-Let's make the game do something when you click on the alien. To do this we
-need to define a function called :func:`on_mouse_down`. Add this to the source
-code::
+Vamos a hacer que el juego haga algo cuando pulsas en el alien. Para esto 
+necesitamos definir una función llamada :func:`on_mouse_down`. Añade esto al 
+código fuente::
 
     def on_mouse_down(pos):
         if alien.collidepoint(pos):
@@ -153,17 +154,16 @@ code::
         else:
             print("You missed me!")
 
-You should run the game and try clicking on and off the alien.
+Debes ejecutar el juego e intentar pulsar dentro y fuera del alien.
 
-Pygame Zero is smart about how it calls your functions. If you don't define
-your function to take a ``pos`` parameter, Pygame Zero will call it without
-a position. There's also a ``button`` parameter for ``on_mouse_down``. So we
-could have written::
+Pygame Zero es astuto sobre cómo llamar tus funciones. Si no defines tu función
+con el parámetro ``pos``, Pygame Zero lo llamará sin una posición. Hay también 
+un parámetro ``button`` para ``on_mouse_down``. Podíamos haber escrito::
 
     def on_mouse_down():
         print("You clicked!")
 
-or::
+o::
 
     def on_mouse_down(pos, button):
         if button == mouse.LEFT and alien.collidepoint(pos):
@@ -171,17 +171,17 @@ or::
 
 
 
-Sounds and images
------------------
+Sonidos e imágenes
+------------------
 
-Now let's make the alien appear hurt. Save these files:
+Vamos a hacer que el alien parezca herido. Guarda estos archivos:
 
-* `alien_hurt.png <_static/alien_hurt.png>`_ - save this as ``alien_hurt.png``
-  in the ``images`` directory.
-* `eep.wav <_static/eep.wav>`_ - create a directory called ``sounds`` and save
-  this as ``eep.wav`` in that directory.
+* `alien_hurt.png <_static/alien_hurt.png>`_ - guarda esto como 
+  ``alien_hurt.png`` en el directorio ``images``.
+* `eep.wav <_static/eep.wav>`_ - crea un directorio llamado ``sounds`` y guarda 
+  esto como ``eep.wav`` en ese directorio.
 
-Your project should now look like this:
+Tu proyecto debe verse así ahora:
 
 .. code-block:: none
 
@@ -193,29 +193,29 @@ Your project should now look like this:
     │   └── eep.wav
     └── intro.py
 
-``sounds/`` is the standard directory that Pygame Zero will look in to find
-your sound files.
+``sounds/`` es el directorio estándar en el que Pygame Zero mirará para buscar 
+tus archivos de sonido.
 
-Now let's change the ``on_mouse_down`` function to use these new resources::
+Vamos a cambiar la función ``on_mouse_down`` para que use esos nuevos archivos::
 
     def on_mouse_down(pos):
         if alien.collidepoint(pos):
             alien.image = 'alien_hurt'
             sounds.eep.play()
 
-Now when you click on the alien, you should hear a sound, and the sprite will
-change to an unhappy alien.
+Cuando ahora pulsas al alien, debes escuchar un sonido, y el objeto se cambiará 
+a un alien triste.
 
-There's a bug in this game though; the alien doesn't ever change back to a
-happy alien (but the sound will play on each click). Let's fix this next.
+Hay un fallo en este juego; el alien no vuelve a cambiar al alien feliz (pero 
+el el sonido se escuchará en cada click). Vamos a corregirlo ahora.
 
 
-Clock
+Reloj
 -----
 
-If you're familiar with Python outside of games programming, you might know the
-``time.sleep()`` method that inserts a delay. You might be tempted to write
-code like this::
+Si estás familizrizado con Python fuera la programación de juegos, deberías 
+conocer la función ``time.sleep()`` que realiza una pausa. Podrías estar 
+tentado a escribir un código como este::
 
     def on_mouse_down(pos):
         if alien.collidepoint(pos):
@@ -224,17 +224,17 @@ code like this::
             time.sleep(1)
             alien.image = 'alien'
 
-Unfortunately, this is not at all suitable for use in a game. ``time.sleep()``
-blocks all activity; we want the game to go on running and animating. In fact
-we need to return from ``on_mouse_down``, and let the game work out when to
-reset the alien as part of its normal processing, all the while running your
-``draw()`` and ``update()`` methods.
+Desafortunadamente, esto no es del todo válido para usarlo en un juego. 
+``time.sleep()`` bloquea toda la actividad; queremos que el juego vaya 
+funcionando y animando. De hecho, necesitamos salir de ``on_mouse_down``, y 
+dejar que el juego funcione cuando reseteamos el alien como parte del procesado 
+normal, todo mientras ejecutamos tus funciones ``draw()`` y ``update()``
 
-This is not difficult with Pygame Zero, because it has a built-in
-:class:`Clock` that can schedule functions to be called later.
+Esto no es difícil con Pygame Zero, porque tiene la función implícita 
+:class:`Clock` que puede programar funciones para que sean llamadas después
 
-First, let's "refactor" (ie. re-organise the code). We can create functions to
-set the alien as hurt and also to change it back to normal::
+Primero, vamos a "refractar" (reorganizar el código). Podemos crear funciones 
+para poner el alien como herido y para que vuelva a estar normal::
 
     def on_mouse_down(pos):
         if alien.collidepoint(pos):
@@ -249,36 +249,38 @@ set the alien as hurt and also to change it back to normal::
     def set_alien_normal():
         alien.image = 'alien'
 
-This is not going to do anything different yet. ``set_alien_normal()`` won't be
-called. But let's change ``set_alien_hurt()`` to use the clock, so that the
-``set_alien_normal()`` will be called a little while after. ::
+Esto no va a haver nada diferente todavía. ``set_alien_normal()`` no será 
+llamado. Pero vamos a cambiar ``set_alien_hurt()`` para usar el reloj, para que
+``set_alien_normal()`` sea llamado un poco después::
 
     def set_alien_hurt():
         alien.image = 'alien_hurt'
         sounds.eep.play()
         clock.schedule_unique(set_alien_normal, 0.5)
 
-``clock.schedule_unique()`` will cause ``set_alien_normal()`` to be called
-after ``0.5`` second. ``schedule_unique()`` also prevents the same function
-being scheduled more than once, such as if you click very rapidly.
+``clock.schedule_unique()`` hará que ``set_alien_normal()`` sea llamado ``0,5`` 
+segundos después. ``schedule_unique()`` también previene que la misma función 
+sea llamada más de una vez, como cuando pulsas muy rápido.
 
-Try it, and you'll see the alien revert to normal after 0.5 second. Try clicking
-rapidly and verify that the alien doesn't revert until 0.5 second after the last
-click.
+Inténtalo, y verás el alien volver a estar normal después de 0,5 segundos. 
+Intenta pulsar rápidamente y comprueba que el alien no vuelve estar normal 
+después de 0,5 segundos después del primer click.
 
-``clock.schedule_unique()`` accepts both integers and float numbers for the time interval. in the tutorial we are using
-a float number to show this but feel free to use both to see the difference and effects the different values have.
+``clock.schedule_unique()`` acepta tanto enteros y números decimales para el 
+intervalo de tiempo. En el tutorial estamos usando números decimales para 
+mostrarlo, pero siéntete libre de usar ambos para ver las diferencias y efectos 
+de distintos valores.
 
 
-Summary
+Resumen
 -------
 
-We've seen how to load and draw sprites, play sounds, handle input events, and
-use the built-in clock.
+Hemos visto como cargar y dibujar objetos, tocar sonidos, manejar eventos de 
+entrada, y usar el reloj interno.
 
-You might like to expand the game to keep score, or make the alien move more
-erratically.
+Quizás quieras expandir el juego para mantener una puntuación, o hacer que el 
+alien se mueva más erráticamente.
 
-There are lots more features built in to make Pygame Zero easy to use. Check
-out the :doc:`built in objects <builtins>` to learn how to use the rest of the
-API.
+Hay muchas más características hechas para hacer Pygame Zero fácil de usar. 
+Compruébalo en :doc:`los objetos internos <builtins>` para aprender cómo usar 
+el resto de la API.
