@@ -1,25 +1,25 @@
-Roadmap
-=======
+Mapa de ruta
+============
 
-Pygame Zero is an open source project, and as with any such project, the
-development roadmap is subject to change.
+Pygame Zero es un proyecto de código abierto, y como con cualquier otro 
+proyecto, el mapa de ruta de desarrollo es sujeto de cambio.
 
-This document just lays out some goals for future releases, but there is **no
-guarantee** that these targets will be hit.
+Este documento únicamente establece algunas metas para futuras versiones, pero 
+**no hay garantía** de que esos objetivos se cumplan.
 
 
-Translations
+Traducciones
 ------------
 
-Pygame Zero is aimed at young users, whose English skills might not be good
-enough to read the documentation if it isn't in their own language.
+Pygame Zero está dirigido a usuarios jóvenes, cuya habilidades con el Inglés 
+podrían no ser lo suficiente para leer la documentación si no está en su 
+lenguaje.
 
-Adding translations of the documentation would help to bring Pygame Zero to new
-users. This is something that needs contributors to help with. My own language
-skills aren't good enough!
+Añadir traducciones a la documentación ayudaría a llevar Pygame Zero a nuevos 
+usuarios. Esto es algo que necesita contribuidores para ayudar.
 
-Please see :ref:`the translating guide <translating>` if you think you can
-help.
+Por favor mira :ref:`la guía de traducción <translating>` si piensas que puedes 
+ayudar.
 
 
 Gamepad Support

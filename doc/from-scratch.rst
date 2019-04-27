@@ -1,5 +1,5 @@
-Migrating from Scratch
-======================
+Moviéndose desde Scratch
+========================
 
 This tutorial will compare an implementation of Flappy Bird written in Scratch
 with one written in Pygame Zero. The Scratch and Pygame Zero programs are
@@ -227,30 +227,30 @@ The biggest differences between Scratch and Pygame Zero are these:
   instead of ``dead = 0`` as in Scratch.
 
 
-Summary
+Resumen
 -------
 
-Many of the concepts available in Scratch can be translated directly into
-Pygame Zero.
+Muchos de los conceptos disponibles en Scratch pueden ser traducidos 
+directamente en Pygame Zero
 
-Here are some comparisons:
+Aquí hay algunas comparaciones:
 
 +----------------------------+--------------------------------------------+
-| In Scratch                 | In Pygame Zero                             |
+| En Scratch                 | En Pygame Zero                             |
 +============================+============================================+
-| ``change y by 1`` (up)     | ``bird.y -= 1``                            |
+| ``cambia y por 1`` (arriba)| ``bird.y -= 1``                            |
 +----------------------------+--------------------------------------------+
-| ``change y by -1`` (down)  | ``bird.y += 1``                            |
+| ``cambia y por -1`` (abajo)| ``bird.y += 1``                            |
 +----------------------------+--------------------------------------------+
 | ``set costume to <name>``  | ``bird.image = 'name'``                    |
 +----------------------------+--------------------------------------------+
-| ``if dead = 0``            | ``if not bird.dead:``                      |
+| ``si dead = 0``            | ``if not bird.dead:``                      |
 +----------------------------+--------------------------------------------+
 | ``set dead to 0``          | ``bird.dead = False``                      |
 +----------------------------+--------------------------------------------+
-| ``if touching Top?``       | ``if bird.colliderect(pipe_top)``          |
+| ``si tocando Top?``        | ``if bird.colliderect(pipe_top)``          |
 +----------------------------+--------------------------------------------+
-| ``When Flag clicked``...   | Put code into the ``update()`` function.   |
+| ``When Flag clicked``...   | Pon el código en la función ``update()``   |
 | ``forever``                |                                            |
 +----------------------------+--------------------------------------------+
 | ``When [any] key pressed`` | ``def on_key_down():``                     |
