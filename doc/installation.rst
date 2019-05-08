@@ -1,40 +1,41 @@
-Installing Pygame Zero
+Instalando Pygame Zero
 ======================
 
-Included with Mu
-----------------
+Incluido con Mu
+---------------
 
-The `Mu IDE <https://codewith.mu>`_, which is aimed at beginners, includes a
-version of Pygame Zero.
+El `IDE Mu <https://codewith.mu>`_, el cual está diseñado para principiantes,
+incluye una versión de Pygame Zero.
 
-You will need to `switch mode <https://codewith.mu/en/tutorials/1.0/modes>`_
-into Pygame Zero mode to use it. Then type in a program and
-`use the Play button <https://codewith.mu/en/tutorials/1.0/pgzero>`_ to run it
-with Pygame Zero.
+Necesitarás `cambiar el modo <https://codewith.mu/en/tutorials/1.0/modes>`_ a
+Pygame Zero para usarlo. Entonces escribe un programa y
+`usa el botón Play <https://codewith.mu/en/tutorials/1.0/pgzero>`_ para
+ejecutarlo con Pygame Zero.
 
 .. note::
 
-    The version of Mu included with Pygame Zero may not be the latest version!
-    You can find which version is installed by running this code in Mu::
+    La versión de Mu incluida con Pygame Zero puede no ser la última versión.
+    Puedes buscar qué versión está instalada ejecutando este código en Mu::
 
         import pgzero
         print(pgzero.__version__)
 
 
-Stand-alone installation
-------------------------
+Instalación estándar
+--------------------
 
-First of all, you need **Python 3** installed! This is usually installed
-already if you are using **Linux** or a **Raspberry Pi**. You can download it
-from `python.org <https://www.python.org/>` on other systems.
+Primero de todo, necesitas **Python 3** instalado. Este está normalmente
+instalado si estás usando **Linux** o una **Raspberry Pi**. Puedes descargarlo
+desde `python.org <https://www.python.org/>`_ en otros sistemas.
 
 
 Windows
 '''''''
 
-To install Pygame Zero, use **pip**. At a `command prompt`__, type
+Para instalar Pygame Zero, usa **pip**. En el `intérprete de comandos`__,
+introduce lo siguiente
 
-.. __: https://www.lifewire.com/how-to-open-command-prompt-2618089
+.. __: https://www.solvetic.com/tutoriales/article/2341-formas-de-abrir-consola-de-comandos-en-windows-10/
 
 ::
 
@@ -44,53 +45,49 @@ To install Pygame Zero, use **pip**. At a `command prompt`__, type
 Mac
 '''
 
-In a Terminal window, type
+En una ventana de terminal, introduce
 
 ::
 
    pip install pgzero
 
+Nota que no hay actualmente paquetes precompilados (Wheels) para Pygame que
+soporten python 3.4 para Mac, necesitarás actualizar Python a una versión >=3.6
+para poder instalar Pygame. Para ver los Wheels disponibles, visita `pypi`__.
 
-Note that there are currently no Wheels for Pygame that support python 3.4 for Mac,
-so you will need to upgrade Python to >=3.6 (or use python 2.7) in
-order to be able to install pygame. For a list of available Wheels, please visit
-`pyPI_`
-
-.. _pyPI: https://pypi.org/project/Pygame/#files
+.. __: https://pypi.org/project/Pygame/#files
 
 Linux
 '''''
 
-In a terminal window, type
+En una ventana de terminal, escribe
 
 ::
 
    sudo pip install pgzero
 
 
-Some Linux systems call it ``pip3``; if the above command printed something
-like ``sudo: pip: command not found`` then try::
+Algunos sistemas Linux lo llaman ``pip3``; si el comando anterior devuelve algo
+como ``sudo: pip: command not found`` entonces intenta::
 
     sudo pip3 install pgzero
 
-Sometimes pip is not installed and needs to be installed. If so try this before
-running the above commands again::
-
+Algunas veces pip no está instalado y necesita estar instalado. Si es esto,
+intenta esto antes de ejecutar los comandos anteriores.::
 
     sudo python3 -m ensurepip
 
 
 .. _install-repl:
 
-Installing the REPL
+Instalando el  REPL
 -------------------
 
-:doc:`Pygame Zero's REPL <repl>` is an optional feature. This can be enabled
-when installing with ``pip`` by adding ``pgzero[repl]`` to the pip command
-line::
+:doc:`El REPL de Pygame Zero <repl>` es una característica opcional. Esto puede
+ser habilitado al instalarlo con ``pip`` añadiendo ``pgzero[repl]`` al comando::
 
     pip install pgzero[repl]
 
-If you aren't sure if you have the REPL installed, you can still run this
-command (it won't break anything if it is installed!).
+Si no estás seguro si tienes el REPL instalado, puedes ejecutar este comando
+(no estropeará nada si está instalado).
 
