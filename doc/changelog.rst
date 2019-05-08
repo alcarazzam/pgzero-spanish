@@ -1,30 +1,30 @@
-Changelog
-=========
+Registro de cambios
+===================
 
 1.2 - 2018-02-24
 ----------------
 
-* New: :ref:`Actors can be rotated <rotation>` by assigning to ``actor.angle``
-* New: Actors now have :meth:`~Actor.angle_to()` and
+* Nuevo: :ref:`Actors can be rotated <rotation>` by assigning to ``actor.angle``
+* Nuevo: Actors now have :meth:`~Actor.angle_to()` and
   :meth:`~Actor.distance_to()` methods.
-* New: Actors are no longer subclasses of Rect, though they provide the same
+* Nuevo: Actors are no longer subclasses of Rect, though they provide the same
   methods/properties. However they are now provided with floating point
   precision.
-* New: ``tone.play()`` function to allow playing musical notes.
-* New: ``pgzrun.go()`` to allow running Pygame Zero from an IDE (see
+* Nuevo: ``tone.play()`` function to allow playing musical notes.
+* Nuevo: ``pgzrun.go()`` to allow running Pygame Zero from an IDE (see
   :doc:`ide-mode`).
-* New: show joypad icon by default
-* Examples: add Asteroids example game (thanks to Ian Salmons)
-* Examples: add Flappy Bird example game
-* Examples: add Tetra example game (thanks to David Bern)
+* Nuevo: show joypad icon by default
+* Ejemplos: add Asteroids example game (thanks to Ian Salmons)
+* Ejemplos: add Flappy Bird example game
+* Ejemplos: add Tetra example game (thanks to David Bern)
 * Docs: Add a logo, fonts and colours to the documentation.
 * Docs: Documentation for the :ref:`anchor point system for Actors <anchor>`
 * Docs: Add :doc:`from-scratch` documentation
-* Fix: ``on_mouse_move()`` did not correctly handle the ``buttons`` parameter.
-* Fix: Error message when resource not found incorrectly named last extension
+* Corregido: ``on_mouse_move()`` did not correctly handle the ``buttons`` parameter.
+* Corregido: Error message when resource not found incorrectly named last extension
   searched.
-* Fix: Drawing wrapped text would cause crashes.
-* Fix: :func:`animate()` now replaces animations of the same property, rather
+* Corregido: Drawing wrapped text would cause crashes.
+* Corregido: :func:`animate()` now replaces animations of the same property, rather
   than creating two animations which fight.
 * Updated ptext to a revision as of 2016-11-17.
 * Removed: removed undocumented British English ``centrex``, ``centrey``,
@@ -53,26 +53,26 @@ Changelog
 1.0.2 - 2015-06-04
 ------------------
 
-* Fix: ensure compatibility with Python 3.2
+* Corregido: ensure compatibility with Python 3.2
 
 1.0.1 - 2015-05-31
 ------------------
 
 This is a bugfix release.
 
-* Fix: Actor is now positioned to the top left of the window if ``pos`` is
+* Corregido: Actor is now positioned to the top left of the window if ``pos`` is
   unspecified, rather than appearing partially off-screen.
 
-* Fix: repeating clock events can now unschedule/reschedule themselves
+* Corregido: repeating clock events can now unschedule/reschedule themselves
 
   Previously a callback that tried to unschedule itself would have had no
   effect, because after the callback returns it was rescheduled by the clock.
 
   This applies also to ``schedule_unique``.
 
-* Fix: runner now correctly displays tracebacks from user code
+* Corregido: runner now correctly displays tracebacks from user code
 
-* New: Eliminate redraws when nothing has changed
+* Nuevo: Eliminate redraws when nothing has changed
 
   Redraws will now happen only if:
 
@@ -85,12 +85,12 @@ This is a bugfix release.
 1.0 - 2015-05-29
 ----------------
 
-* New: Added ``anchor`` parameter to Actor, offering control over where its
+* Nuevo: Added ``anchor`` parameter to Actor, offering control over where its
   ``pos`` attribute refers to. By default it now refers to the center.
 
-* New: Added Ctrl-Q/⌘-Q as a hard-coded keyboard shortcut to exit a game.
+* Nuevo: Added Ctrl-Q/⌘-Q as a hard-coded keyboard shortcut to exit a game.
 
-* New: ``on_mouse_*`` and ``on_key_*`` receive ``IntEnum`` values as ``button``
+* Nuevo: ``on_mouse_*`` and ``on_key_*`` receive ``IntEnum`` values as ``button``
   and ``key`` parameters, respectively. This simplifies debugging and enables
   usage like::
 
@@ -100,4 +100,4 @@ This is a bugfix release.
 1.0beta1 - 2015-05-19
 ---------------------
 
-Initial public (preview) release.
+Versión inicial (vista previa) pública.
