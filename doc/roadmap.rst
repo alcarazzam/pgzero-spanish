@@ -11,7 +11,7 @@ Este documento únicamente establece algunas metas para futuras versiones, pero
 Traducciones
 ------------
 
-Pygame Zero está dirigido a usuarios jóvenes, cuya habilidades con el Inglés 
+Pygame Zero está dirigido a usuarios jóvenes, cuyas habilidades con el Inglés 
 podrían no ser lo suficiente para leer la documentación si no está en su 
 lenguaje.
 
