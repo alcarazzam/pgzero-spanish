@@ -1,8 +1,7 @@
-Laptop Stickers
-===============
-
-`Sticker Mule`_ have graciously offered to provide a number of stickers for
-Pygame Zero users for free.
+Pegatinas para el ordenador
+===========================
+`Sticker Mule`_ se ha ofrecido amablemente a proporcionar distintas pegatinas
+para Pygame Zero gratuitamente.
 
 .. _`Sticker Mule`: https://www.stickermule.com/supports/opensource
 
@@ -12,47 +11,47 @@ Pygame Zero users for free.
     :align: center
     :target: https://www.stickermule.com/supports/opensource
 
-Laptop stickers are a great way to encourage students to continue tinkering and
-learning, as well as spreading the word about Pygame Zero.
+Las pegatinas para el ordenador son una genial manera de fomentar a los
+estudiantes a continuar aprendiendo y mejorando, al igual que expandiéndose en
+el mundo sobre Pygame Zero
 
-The stickers should look a little like this (not to scale):
+Las pegatinas deberían ser similares a esto (no a escala):
 
 .. image:: _static/sticker-mockup.svg
     :align: center
 
 
-For learners
-------------
+Para aprendices
+---------------
+Debido al coste de distribución, y porque Pygame Zero es una librería gratuita
+de la comunidad, **no tenemos una manera de conseguir pegatinas para ti todavía**
 
-Due to the costs of distribution, and because Pygame Zero is a free community
-library, **we don't have a way of getting stickers directly to you yet.**
-
-It may be possible to obtain stickers at conferences and meet-ups. Please
-check back soon.
-
-
-For educators/meet-ups
-----------------------
-
-We would like to distribute stickers primarily via educators and educational
-meet-ups. At this time it is not known how many stickers we will be able to
-distribute in this way (and it may be prohibitively expensive to ship them
-outside the UK).
-
-Please fill out our `Google Form`_ to express your interest.
-
-.. _`Google Form`: https://goo.gl/forms/6uzS2lsASGUMdOV72
+Puede ser posible obtener pegatinas en conferencias y reuniones. Por favor,
+vuele a comprobarlo pronto.
 
 
-For developers
---------------
+Para profesores
+---------------
+Nos gustaría distribuir pegatinas principalmente a través de los profesores y
+las reuniones educativas. En este momento no se sabe cuántas pegatinas seremos
+capaces de distribuir de esta manera (y puede ser muy caro enviarlas fura del
+Reino Unido).
 
-Free stickers are primarily intended for learners. However, if a pull request
-you make to Pygame Zero or a translation is accepted, we would be very happy to
-give you a free laptop sticker if the opportunity arises.
+Por favor completa nuestro `Formulario de Google`_ para expresar tus intereses.
 
-Please request a sticker in your Pull Request comments (or make yourself known
-at a conference/meet-up).
+.. _`Formulario de Google`: https://goo.gl/forms/6uzS2lsASGUMdOV72
 
-If you attend educational events or Python events regularly, and you would be
-willing to distribute stickers, this could also be useful. Please let us know.
+
+Para desarrolladores
+--------------------
+Las pegatinas gratuitas están principalmente diseñadas para los aprendices. Sin
+embargo, si un *pull request* que hagas a Pygame Zero o una traducción es
+aceptada, estaríamos contentos de darte una pegatina gratuita si llega la
+oportunidad.
+
+Por favor solicita la pegatina en los comentarios de tu *Pull Request* (o
+háznoslo saber en una conferencia/encuentro).
+
+Si atiendes a eventos educativos o eventos de Python regularmente, y estarías
+dispuesto a distribuir pegatinas, esto podría ser también útil. Por favor
+háznoslo saber.
